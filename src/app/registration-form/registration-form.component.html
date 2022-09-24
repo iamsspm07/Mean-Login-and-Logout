@@ -1,0 +1,24 @@
+<div id="container">
+    <header>Register Form</header>
+<body class="form-center">
+<form #regForm="ngForm" (ngSubmit)="displayStudents(regForm.value)">
+    Enter Student Id: <br><input type ="number" name = "stdId" ngModel #stdId = 'ngModel' placeholder="Student Id" required><br/>
+    <div *ngIf="stdId.errors?.['required'] && stdId.touched">Student Id is Mandatory...</div>
+
+    Enter Student Name: <br><input type ="text" name = "stdName" ngModel #stdName = 'ngModel' placeholder="Full Name" minlength = "5" required><br/>
+    <div *ngIf="stdName.errors?.['required'] && stdName.touched">Name is mandatory...</div>
+    <div *ngIf="stdName.errors?.['minlength'] && stdName.touched">Name Min 5 characters required...</div>
+
+    Enter Student DOB: <br><input type ="date" name = "stdDOB" ngModel #stdDOB = 'ngModel'placeholder="Date of Birth" required><br/>
+
+    Enter Student Course: <br><input type ="text" name = "stdCourse" ngModel #stdCourse = 'ngModel'placeholder="Course" maxlength = "10" required><br/>
+    <div *ngIf="stdCourse.valid && stdCourse.dirty">Proper Format</div>
+    Enter Student Fees: <br><input type ="number" name = "stdFee" ngModel #stdFee = 'ngModel' placeholder="Fees" required><br/>
+    
+    <button class="button" [disabled]="!regForm.valid" ><span>Register </span></button><br/>
+
+
+  
+</form>
+</body>
+</div>

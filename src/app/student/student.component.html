@@ -1,0 +1,49 @@
+<html>
+<h1 class="text-center">Students Records!</h1>
+
+<body>
+    <div class="container">
+        <table style="width:100%" class="table table-bordered">
+            <thead class="table-danger">
+                <tr>
+                    <th>
+                        Student Id
+                    </th>
+                    <th>
+                        Student Name
+                    </th>
+                    <th>
+                        Date Of Birth
+                    </th>
+                    <th>
+                        Course
+                    </th>
+                    <th>
+                        Fees
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let std of student">
+                    <td>
+                        {{std.stdId}}
+                    </td>
+                    <td>
+                        {{std.stdName | uppercase}}
+                    </td>
+                    <td>
+                        {{std.stdDob | agePipe}}
+                    </td>
+                    <td>
+                        {{std.stdCourse | uppercase}}
+                    </td>
+                    <td>
+                        {{std.stdFees}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

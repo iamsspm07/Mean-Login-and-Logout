@@ -1,0 +1,16 @@
+
+<form #loginForm = "ngForm" (ngSubmit) = "showMessage(loginForm.value)" novalidate >
+    <div class="container">
+    Enter login id : <input type = "text" name = "loginId" ngModel required  minlength = "2" #loginId="ngModel" class="form-control"><br/>
+    Enter password : <input type = "password" name = "password" ngModel required minlength = "2" #password="ngModel" class="form-control"><br/>
+    <button class="btn btn-secondary" [disabled]="!loginForm.valid"> Login </button>
+</div>
+</form>
+
+    
+    <div *ngIf="loginId.errors?.['required'] && loginId.touched">Login Id is mandatory...</div>
+    <div *ngIf="loginId.errors?.['minlength'] && loginId.touched">Login Id Min 5 characters required...</div>
+    <div *ngIf="password.errors?.['required'] && password.touched">Password is mandatory...</div>
+    <div *ngIf="password.errors?.['minlength'] && password.touched">Password Min 5 characters required...</div><br/>
+    
+    

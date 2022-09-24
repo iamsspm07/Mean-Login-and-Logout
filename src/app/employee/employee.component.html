@@ -1,0 +1,57 @@
+<html>
+    <h1>Employee Details!</h1>
+    <body>
+        <table style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Employee Id
+                    </th>
+                    <th>
+                        Employee Name
+                    </th>
+                    <th>
+                        Employee Salary
+                    </th>
+                    <th>
+                        Employee Gender
+                    </th>
+                    <th>
+                        Date Of Joining
+                    </th>
+                    <th>
+                        Login Id
+                    </th>
+                    <th>
+                        Experience
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employees of employee">
+                    <td>
+                        {{employees.EmployeeId}}
+                    </td>
+                    <td>
+                        {{employees.EmployeeName | gender : employees.EmployeeGander | uppercase}}
+                    </td>
+                    <td>
+                        {{employees.EmployeeSalary}}
+                    </td>
+                    <td>
+                        {{employees.EmployeeGander }}
+                    </td>
+                    <td>
+                        {{employees.EmployeeDOJ  | date : 'dd-MMM-yyyy'}}
+                    </td>
+                    <td>
+                        {{employees.LoginId | replace}}
+                    </td>
+                    <td>
+                        {{employees.EmployeeDOJ | exp}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

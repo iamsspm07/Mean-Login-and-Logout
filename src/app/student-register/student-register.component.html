@@ -1,0 +1,17 @@
+<form #regForm="ngForm" (ngSubmit)="submitForm(regForm.value)">
+    Enter Student Id: <input type="number" name="stdId" ngModel #stdId='ngModel'><br /><br />
+    Enter Student Name: <input type="text" name="stdName" ngModel #stdName='ngModel'><br /><br />
+    Enter Student DOB: <input type="text" name="stdDOB" ngModel #stdDOB='ngModel'><br /><br />
+    Enter Student Course: <input type="text" name="stdCourse" ngModel #stdCourse='ngModel'><br /><br />
+    Enter Student Fees: <input type="number" name="stdFee" ngModel #stdFee='ngModel'><br /><br />
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group">
+            <select type="text" name="country" ngModel #country="ngModel">
+                <option value="" disabled selected>Select Country</option>
+                <option value="{{c}}" *ngFor="let c of countries">{{c}}</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn btn-secondary" [disabled]="!regForm.valid">Register</button><br />
+</form>
